@@ -1,0 +1,271 @@
+/* Fonts */
+@font-face {
+    font-family: nav1;
+    src: url(/Rejouice-Headline.woff2); /* Adjusted path for Next.js public folder */
+}
+
+@font-face {
+    font-family: nav2;
+    src: url(/NeueHaasDisplayLight.ttf); /* Adjusted path for Next.js public folder */
+}
+
+/* Global Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+/* Navbar */
+nav {
+    height: 5vw;
+    width: 100%;
+    background: linear-gradient(to left, #3FA9F5, #2E78C5);
+}
+
+.navbar {
+    padding: 0 3vw;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10vw;
+}
+
+.nav-logo > h1 {
+    font-size: 2vw;
+    font-family: "nav1";
+    color: white;
+}
+
+/* Navbar Icons */
+.nav-left-icon {
+    width: 7vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1vw;
+}
+
+.nav-left-icon > i {
+    font-size: 1.2vw;
+    color: white;
+}
+
+.nav-right {
+    display: flex;
+    gap: 3vw;
+}
+
+.nav-right-icon {
+    width: 7vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1vw;
+}
+
+.nav-right-icon > i {
+    font-size: 1.2vw;
+    color: white;
+}
+
+/* Login Dropdown */
+.std-login {
+    width: 17vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.std-login > img {
+    height: 3vw;
+    width: 3vw;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.pop {
+    position: absolute;
+    margin-top: 1.9vw;
+    padding: 0.1vw 0.3vw;
+    border-radius: 0.3vw;
+    background-color: rgb(235, 231, 231);
+    transition: cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
+    visibility: hidden;
+}
+
+.pop > h5 {
+    font-size: 1vw;
+    padding: 0.2vw 0.4vw;
+    border-radius: 0.3vw;
+    font-family: "nav2";
+}
+
+.pop > h5:hover {
+    cursor: pointer;
+    background-color: #d3d5da;
+}
+
+.std-log-panel {
+    position: relative;
+    align-items: center;
+}
+
+.std-log-panel-text > h4 {
+    font-size: 1.2vw;
+    color: white;
+    font-family: "nav2";
+    letter-spacing: 0.1vw;
+    padding: 0.1vw 0.2vw;
+    border-radius: 0.3vw;
+    background: linear-gradient(to right, #317aae9e, #66a5e8a6);
+}
+
+.std-log-panel-text:hover {
+    cursor: pointer;
+}
+
+.std-login:hover .pop {
+    visibility: visible;
+    transition-duration: 1s;
+    transition: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 5vw; /* Matches the navbar height */
+    left: 0;
+    height: calc(100% - 5vw); /* Subtracts the navbar height */
+    width: 20vw; /* Adjust width as needed */
+    background: linear-gradient(to left, #3FA9F5, #2E78C5);
+    color: white;
+    font-family: "nav2";
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar-content {
+    padding: 2vw;
+}
+
+.sidebar-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-content ul li {
+    margin: 1.5vw 0;
+    position: relative;
+}
+
+.sidebar-content ul li a {
+    font-size: 1.2vw;
+    color: white;
+    text-decoration: none;
+    padding: 0.5vw;
+    display: block;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.sidebar-content ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 0.5vw;
+}
+
+/* Submenus */
+.submenu {
+    margin-top: 0.5vw;
+    margin-left: 1.5vw;
+    list-style: none;
+    padding-left: 1.5vw;
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    display: none;
+}
+
+.sidebar-content ul li.active > .submenu {
+    display: block;
+}
+
+.submenu li {
+    margin: 0.5vw 0;
+}
+
+.submenu li a {
+    font-size: 1vw;
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.submenu li a:hover {
+    text-decoration: underline;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    font-size: 1.5vw;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 1vw;
+    transition: transform 0.2s ease-in-out;
+}
+
+.hamburger:hover {
+    transform: scale(1.2);
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 5vw;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 5vw);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+    display: none;
+}
+
+.sidebar.open + .overlay {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60vw;
+    }
+
+    .sidebar-content h2 {
+        font-size: 4vw;
+    }
+
+    .sidebar-content ul li a {
+        font-size: 3vw;
+    }
+
+    .submenu li a {
+        font-size: 2.5vw;
+    }
+}
